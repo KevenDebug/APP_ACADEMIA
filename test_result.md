@@ -304,20 +304,17 @@ frontend:
 metadata:
   created_by: "main_agent"
   version: "1.0"
-  test_sequence: 0
+  test_sequence: 1
   run_ui: false
 
 test_plan:
-  current_focus:
-    - "Todos os endpoints da API"
-    - "Funcionalidade de criar treino personalizado"
-    - "Funcionalidade de copiar treino da biblioteca"
-    - "Deletar treino personalizado"
-    - "Editar treino existente"
+  current_focus: []
   stuck_tasks: []
-  test_all: true
+  test_all: false
   test_priority: "high_first"
 
 agent_communication:
     - agent: "main"
       message: "Implementação inicial completa do app de academia. Backend com FastAPI + MongoDB implementado com todos os endpoints CRUD e inicialização de treinos pré-definidos. Frontend com Expo Router implementado com navegação por tabs, listagens, detalhes e formulários de criação/edição. Testado manualmente os endpoints principais com curl - funcionando. Pronto para teste completo do backend."
+    - agent: "testing"
+      message: "✅ TESTE BACKEND COMPLETO - Todos os 9 endpoints testados com sucesso: GET /api/workouts (listar todos), GET /api/workouts/predefined (4 treinos pré-definidos), GET /api/workouts/custom (treinos personalizados), GET /api/workouts/:id (buscar por ID), POST /api/workouts (criar), PUT /api/workouts/:id (atualizar), DELETE /api/workouts/:id (deletar), POST /api/workouts/:id/copy (copiar), error handling (404/400). Estruturas de dados validadas: Workout, WorkoutSplit, Exercise. Funcionalidades CRUD operacionais. Correção menor aplicada no error handling. Backend 100% funcional e pronto para produção."
