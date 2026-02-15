@@ -251,6 +251,8 @@ async def get_workout(workout_id: str):
         if not workout:
             raise HTTPException(status_code=404, detail="Treino não encontrado")
         return serialize_workout(workout)
+    except HTTPException:
+        raise  # Re-raise HTTPExceptions with original status code
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
 
