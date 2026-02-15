@@ -56,13 +56,12 @@ def test_get_all_workouts():
     
     print(f" SUCCESS: Retrieved {len(workouts)} workouts")
     
-    # Verify structure
     if workouts:
         workout = workouts[0]
         required_fields = ["id", "name", "type", "splits"]
         missing_fields = [f for f in required_fields if f not in workout]
         if missing_fields:
-            print(f"❌ FAILED: Missing fields in workout: {missing_fields}")
+            print(f" FAILED: Missing fields in workout: {missing_fields}")
             return False
     
     return True
@@ -81,19 +80,16 @@ def test_get_predefined_workouts():
         print(f" FAILED: Expected list, got {type(workouts)}")
         return False
     
-    # Should have exactly 4 predefined workouts
     expected_names = ["ABC - Clássico", "ABCDE - Avançado", "Push/Pull/Legs", "Upper/Lower"]
     if len(workouts) != 4:
         print(f" FAILED: Expected 4 predefined workouts, got {len(workouts)}")
         return False
     
-    # Verify all are type "predefined"
     for workout in workouts:
         if workout.get("type") != "predefined":
             print(f" FAILED: Workout {workout.get('name')} is not type 'predefined'")
             return False
     
-    # Verify expected names are present
     actual_names = [w.get("name") for w in workouts]
     for expected_name in expected_names:
         if expected_name not in actual_names:
@@ -117,7 +113,6 @@ def test_get_custom_workouts():
         print(f" FAILED: Expected list, got {type(workouts)}")
         return False
     
-    # Verify all are type "custom" if any exist
     for workout in workouts:
         if workout.get("type") != "custom":
             print(f" FAILED: Workout {workout.get('name')} is not type 'custom'")
@@ -130,7 +125,6 @@ def test_create_custom_workout():
     """Test POST /api/workouts - Create new custom workout"""
     print("🔍 Testing POST /api/workouts (create custom workout)...")
     
-    # Create a realistic workout with multiple splits
     workout_data = {
         "name": "Meu Treino Personalizado - Hipertrofia",
         "type": "custom",
@@ -222,14 +216,12 @@ def test_get_workout_by_id(workout_id):
         print(f" FAILED: Expected ID {workout_id}, got {workout.get('id')}")
         return False
     
-    # Verify complete structure
     required_fields = ["id", "name", "type", "splits", "createdAt"]
     missing_fields = [f for f in required_fields if f not in workout]
     if missing_fields:
         print(f" FAILED: Missing fields: {missing_fields}")
         return False
-    
-    # Verify splits structure
+
     if not workout.get("splits") or len(workout["splits"]) == 0:
         print(" FAILED: Workout has no splits")
         return False
