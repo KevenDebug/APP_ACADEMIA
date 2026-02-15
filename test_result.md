@@ -101,3 +101,196 @@
 #====================================================================================================
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
+
+user_problem_statement: "App de academia com divisões de treino usando JavaScript, Node e React Native (Expo). Permite criar/editar divisões de treino, tem biblioteca de treinos pré-definidos e treinos personalizados."
+
+backend:
+  - task: "API endpoint GET /api/workouts - Listar todos os treinos"
+    implemented: true
+    working: "NA"
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "main"
+          comment: "Implementado endpoint para listar todos os treinos com suporte a MongoDB"
+  
+  - task: "API endpoint GET /api/workouts/predefined - Treinos pré-definidos"
+    implemented: true
+    working: "NA"
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "main"
+          comment: "Implementado endpoint para listar treinos pré-definidos. Inclui ABC, ABCDE, Push/Pull/Legs e Upper/Lower"
+  
+  - task: "API endpoint GET /api/workouts/custom - Treinos personalizados"
+    implemented: true
+    working: "NA"
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "main"
+          comment: "Implementado endpoint para listar apenas treinos personalizados criados pelo usuário"
+  
+  - task: "API endpoint GET /api/workouts/:id - Buscar treino específico"
+    implemented: true
+    working: "NA"
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "main"
+          comment: "Implementado endpoint para buscar detalhes de um treino específico por ID"
+  
+  - task: "API endpoint POST /api/workouts - Criar novo treino"
+    implemented: true
+    working: "NA"
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "main"
+          comment: "Implementado endpoint para criar novos treinos personalizados com splits e exercícios"
+  
+  - task: "API endpoint PUT /api/workouts/:id - Atualizar treino"
+    implemented: true
+    working: "NA"
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "main"
+          comment: "Implementado endpoint para atualizar treinos existentes"
+  
+  - task: "API endpoint DELETE /api/workouts/:id - Deletar treino"
+    implemented: true
+    working: "NA"
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "main"
+          comment: "Implementado endpoint para deletar treinos personalizados"
+  
+  - task: "API endpoint POST /api/workouts/:id/copy - Copiar treino"
+    implemented: true
+    working: "NA"
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "main"
+          comment: "Implementado endpoint para copiar treino pré-definido e criar versão personalizada"
+  
+  - task: "Inicializar treinos pré-definidos no banco"
+    implemented: true
+    working: "NA"
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "main"
+          comment: "Implementado função de startup para popular banco com 4 treinos pré-definidos (ABC, ABCDE, Push/Pull/Legs, Upper/Lower)"
+
+frontend:
+  - task: "Tab navigation com 'Meus Treinos' e 'Biblioteca'"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/app/_layout.tsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "main"
+          comment: "Implementado layout com navegação por tabs usando expo-router e react-navigation"
+  
+  - task: "Tela 'Meus Treinos' - Listagem de treinos personalizados"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/app/index.tsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "main"
+          comment: "Implementada tela principal com listagem de treinos personalizados, botão FAB para criar novo treino e opção de deletar"
+  
+  - task: "Tela 'Biblioteca' - Listagem de treinos pré-definidos"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/app/library.tsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "main"
+          comment: "Implementada tela de biblioteca com treinos pré-definidos e funcionalidade de copiar para personalizar"
+  
+  - task: "Tela de detalhes do treino"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/app/workout-detail.tsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "main"
+          comment: "Implementada tela de visualização completa do treino com todas as divisões e exercícios, botão de editar para treinos personalizados"
+  
+  - task: "Tela criar/editar treino"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/app/create-workout.tsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "main"
+          comment: "Implementada tela completa para criar/editar treinos com adicionar divisões, adicionar exercícios com modal, remover itens"
+
+metadata:
+  created_by: "main_agent"
+  version: "1.0"
+  test_sequence: 0
+  run_ui: false
+
+test_plan:
+  current_focus:
+    - "Todos os endpoints da API"
+    - "Funcionalidade de criar treino personalizado"
+    - "Funcionalidade de copiar treino da biblioteca"
+    - "Deletar treino personalizado"
+    - "Editar treino existente"
+  stuck_tasks: []
+  test_all: true
+  test_priority: "high_first"
+
+agent_communication:
+    - agent: "main"
+      message: "Implementação inicial completa do app de academia. Backend com FastAPI + MongoDB implementado com todos os endpoints CRUD e inicialização de treinos pré-definidos. Frontend com Expo Router implementado com navegação por tabs, listagens, detalhes e formulários de criação/edição. Testado manualmente os endpoints principais com curl - funcionando. Pronto para teste completo do backend."
