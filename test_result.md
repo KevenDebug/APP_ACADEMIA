@@ -107,111 +107,138 @@ user_problem_statement: "App de academia com divisões de treino usando JavaScri
 backend:
   - task: "API endpoint GET /api/workouts - Listar todos os treinos"
     implemented: true
-    working: "NA"
+    working: true
     file: "/app/backend/server.py"
     stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
         - working: "NA"
           agent: "main"
           comment: "Implementado endpoint para listar todos os treinos com suporte a MongoDB"
+        - working: true
+          agent: "testing"
+          comment: "✅ TESTADO: Endpoint funcionando corretamente - retorna lista de todos os treinos (5 encontrados) com estrutura válida (id, name, type, splits, createdAt)"
   
   - task: "API endpoint GET /api/workouts/predefined - Treinos pré-definidos"
     implemented: true
-    working: "NA"
+    working: true
     file: "/app/backend/server.py"
     stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
         - working: "NA"
           agent: "main"
           comment: "Implementado endpoint para listar treinos pré-definidos. Inclui ABC, ABCDE, Push/Pull/Legs e Upper/Lower"
+        - working: true
+          agent: "testing"
+          comment: "✅ TESTADO: Endpoint funcionando perfeitamente - retorna exatamente 4 treinos pré-definidos com nomes corretos (ABC - Clássico, ABCDE - Avançado, Push/Pull/Legs, Upper/Lower), todos com type='predefined'"
   
   - task: "API endpoint GET /api/workouts/custom - Treinos personalizados"
     implemented: true
-    working: "NA"
+    working: true
     file: "/app/backend/server.py"
     stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
         - working: "NA"
           agent: "main"
           comment: "Implementado endpoint para listar apenas treinos personalizados criados pelo usuário"
+        - working: true
+          agent: "testing"
+          comment: "✅ TESTADO: Endpoint funcionando corretamente - filtra apenas treinos com type='custom', validação de tipo OK"
   
   - task: "API endpoint GET /api/workouts/:id - Buscar treino específico"
     implemented: true
-    working: "NA"
+    working: true
     file: "/app/backend/server.py"
     stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
         - working: "NA"
           agent: "main"
           comment: "Implementado endpoint para buscar detalhes de um treino específico por ID"
+        - working: true
+          agent: "testing"
+          comment: "✅ TESTADO: Endpoint funcionando corretamente - retorna detalhes completos do treino com todas as propriedades (id, name, type, splits com exercises), error handling para IDs inválidos funciona corretamente (404/400)"
   
   - task: "API endpoint POST /api/workouts - Criar novo treino"
     implemented: true
-    working: "NA"
+    working: true
     file: "/app/backend/server.py"
     stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
         - working: "NA"
           agent: "main"
           comment: "Implementado endpoint para criar novos treinos personalizados com splits e exercícios"
+        - working: true
+          agent: "testing"
+          comment: "✅ TESTADO: Endpoint funcionando perfeitamente - cria treinos personalizados com múltiplas splits e exercícios completos (name, sets, reps, weight, notes), retorna ID válido, type='custom' aplicado corretamente"
   
   - task: "API endpoint PUT /api/workouts/:id - Atualizar treino"
     implemented: true
-    working: "NA"
+    working: true
     file: "/app/backend/server.py"
     stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
         - working: "NA"
           agent: "main"
           comment: "Implementado endpoint para atualizar treinos existentes"
+        - working: true
+          agent: "testing"
+          comment: "✅ TESTADO: Endpoint funcionando corretamente - atualiza nome e splits do treino, validação e persistência OK, retorna dados atualizados"
   
   - task: "API endpoint DELETE /api/workouts/:id - Deletar treino"
     implemented: true
-    working: "NA"
+    working: true
     file: "/app/backend/server.py"
     stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
         - working: "NA"
           agent: "main"
           comment: "Implementado endpoint para deletar treinos personalizados"
+        - working: true
+          agent: "testing"
+          comment: "✅ TESTADO: Endpoint funcionando corretamente - deleta treinos com sucesso, verificação pós-deleção confirma remoção, error handling para IDs inexistentes OK"
   
   - task: "API endpoint POST /api/workouts/:id/copy - Copiar treino"
     implemented: true
-    working: "NA"
+    working: true
     file: "/app/backend/server.py"
     stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
         - working: "NA"
           agent: "main"
           comment: "Implementado endpoint para copiar treino pré-definido e criar versão personalizada"
+        - working: true
+          agent: "testing"
+          comment: "✅ TESTADO: Endpoint funcionando perfeitamente - copia treino pré-definido para versão personalizada, altera type para 'custom', mantém splits originais, aplica novo nome via query parameter"
   
   - task: "Inicializar treinos pré-definidos no banco"
     implemented: true
-    working: "NA"
+    working: true
     file: "/app/backend/server.py"
     stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
         - working: "NA"
           agent: "main"
           comment: "Implementado função de startup para popular banco com 4 treinos pré-definidos (ABC, ABCDE, Push/Pull/Legs, Upper/Lower)"
+        - working: true
+          agent: "testing"
+          comment: "✅ TESTADO: Inicialização funcionando corretamente - 4 treinos pré-definidos criados no startup com estruturas completas de splits e exercícios, verificado via endpoint /api/workouts/predefined"
 
 frontend:
   - task: "Tab navigation com 'Meus Treinos' e 'Biblioteca'"
